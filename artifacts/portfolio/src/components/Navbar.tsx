@@ -206,7 +206,7 @@ export function Navbar() {
                       data-testid={`nav-${link.id}`}
                       whileHover={active === link.id ? undefined : { y: -2 }}
                       whileTap={{ scale: 0.97 }}
-                      className={`interactive-chip relative px-3 xl:px-3.5 py-1.5 rounded-full text-[12px] xl:text-[13px] 2xl:text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                      className={`interactive-chip relative px-2.5 xl:px-3 py-1.5 rounded-full text-[12px] xl:text-[13px] 2xl:text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                         active === link.id
                           ? "bg-foreground text-background shadow-[0_10px_24px_hsl(var(--foreground)/0.16)]"
                           : "text-foreground/70"
@@ -215,6 +215,28 @@ export function Navbar() {
                       {link.label}
                     </motion.button>
                   ))}
+
+                  <motion.button
+                    onClick={toggleTheme}
+                    data-testid="button-theme-toggle-desktop"
+                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                    whileHover={{ rotate: theme === "dark" ? 18 : -18, y: -1 }}
+                    whileTap={{ scale: 0.94 }}
+                    className="interactive-icon hover-invert ml-1 flex items-center justify-center w-9 h-9 xl:w-10 xl:h-10 rounded-full border border-foreground/12 text-foreground/70 transition-all duration-200 active:scale-90 shrink-0"
+                  >
+                    <motion.div
+                      key={`desktop-${theme}`}
+                      initial={{ rotate: -30, opacity: 0, scale: 0.7 }}
+                      animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                    >
+                      {theme === "dark" ? (
+                        <Sun className="w-4 h-4" />
+                      ) : (
+                        <Moon className="w-4 h-4" />
+                      )}
+                    </motion.div>
+                  </motion.button>
                 </nav>
 
                 <nav className="flex lg:hidden items-center gap-1.5 overflow-x-auto no-scrollbar max-w-[calc(100vw-8.75rem)] sm:max-w-[calc(100vw-11rem)] px-1">
@@ -241,7 +263,7 @@ export function Navbar() {
                   aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                   whileHover={{ rotate: theme === "dark" ? 18 : -18 }}
                   whileTap={{ scale: 0.94 }}
-                  className="interactive-icon hover-invert flex items-center justify-center w-10 h-10 lg:w-11 lg:h-11 rounded-full border border-foreground/15 text-foreground/70 transition-all duration-200 active:scale-90 shrink-0"
+                  className="interactive-icon hover-invert flex lg:hidden items-center justify-center w-10 h-10 rounded-full border border-foreground/15 text-foreground/70 transition-all duration-200 active:scale-90 shrink-0"
                 >
                   <motion.div
                     key={theme}
