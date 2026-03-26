@@ -65,9 +65,11 @@ export function Education() {
               <p className="mt-6 text-lg sm:text-xl font-medium text-foreground/58">
                 {featured.degree}
               </p>
-              <p className="mt-7 text-xl sm:text-2xl font-semibold text-foreground">
-                {featured.result}
-              </p>
+              {featured.description ? (
+                <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-foreground/54">
+                  {featured.description}
+                </p>
+              ) : null}
             </div>
 
             <div className="lg:text-right">
@@ -105,8 +107,7 @@ export function Education() {
                     {item.institution.split(",")[0]}
                   </h3>
                   <p className="mt-1 text-lg text-foreground/48">
-                    {item.degree} {item.description ? `· ${item.description}` : ""}{" "}
-                    {item.result ? `· ${item.result}` : ""}
+                    {item.degree} {item.description ? `· ${item.description}` : ""}
                   </p>
                 </div>
 

@@ -174,22 +174,19 @@ export const PORTFOLIO_DATA = {
       institution: "Lovely Professional University, Phagwara, Punjab",
       date: "Aug 2023 - Present",
       description: "Pursuing Computer Science and Engineering while building strong practical skills in software development, algorithms, databases, and full stack web technologies.",
-      result: "CGPA: 7.8",
       status: "Currently Enrolled"
     },
     {
       degree: "Intermediate",
       institution: "MHAC School, Akhnoor, Jammu & Kashmir",
       date: "Mar 2022 - May 2023",
-      description: "PCM",
-      result: "Percentage: 67%"
+      description: "PCM"
     },
     {
       degree: "Matriculation",
       institution: "MHAC School, Akhnoor, Jammu & Kashmir",
       date: "Mar 2020 - May 2021",
-      description: "Matriculation",
-      result: "Percentage: 81.2%"
+      description: "Matriculation"
     }
   ]
 };

@@ -146,19 +146,6 @@ export function Navbar() {
                         {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                         Theme
                       </motion.button>
-
-                      <motion.button
-                        onClick={() => {
-                          scrollTo("#contact");
-                          setMenuOpen(false);
-                        }}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="interactive-chip hover-invert flex items-center justify-center gap-2 rounded-full border border-foreground/14 px-4 py-3 text-sm font-medium text-foreground/80"
-                      >
-                        Call
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </motion.button>
                     </div>
                   </motion.div>
                 ) : null}
@@ -268,17 +255,6 @@ export function Navbar() {
                       <Moon className="w-4 h-4" />
                     )}
                   </motion.div>
-                </motion.button>
-
-                <motion.button
-                  onClick={() => scrollTo("#contact")}
-                  data-testid="button-book-call"
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="interactive-chip group hover-invert hidden 2xl:flex items-center gap-2 px-4 py-2.5 rounded-full border border-foreground/20 text-foreground text-[13px] font-medium whitespace-nowrap transition-all duration-200 active:scale-95"
-                >
-                  Book a Call
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </motion.button>
               </div>
             </motion.div>
