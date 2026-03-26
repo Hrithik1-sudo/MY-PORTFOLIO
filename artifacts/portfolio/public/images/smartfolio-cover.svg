@@ -1,0 +1,105 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C6C091"/>
+      <stop offset="1" stop-color="#BDB783"/>
+    </linearGradient>
+    <radialGradient id="creamGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 160) rotate(90) scale(220 180)">
+      <stop stop-color="#FFF4CF"/>
+      <stop offset="1" stop-color="#FFF4CF" stop-opacity="0.94"/>
+    </radialGradient>
+    <radialGradient id="cornerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1560 950) rotate(90) scale(220 200)">
+      <stop stop-color="#FFF4CF"/>
+      <stop offset="1" stop-color="#FFF4CF" stop-opacity="0.9"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="380" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF0CB"/>
+      <stop offset="1" stop-color="#F6E4B0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="140" cy="160" rx="180" ry="220" fill="url(#creamGlow)"/>
+  <ellipse cx="1560" cy="950" rx="170" ry="220" fill="url(#cornerGlow)"/>
+
+  <g transform="translate(42 34)">
+    <path d="M26 0C17.6 0 12 5.6 12 14C12 21.4 17 26.4 23.6 29.8L7.6 45.8V74H55V57.2L68.5 70.7L80 59.2L68 47.2C76 37.6 80.8 25.4 82 12H64C63.2 20.3 60.7 27.1 56.5 32.8L44 20.3V0H26ZM28 18H37V28.2L28 19.2V18ZM21 52.5L30 43.5V64H21V52.5ZM42 33.8L54 45.8V64H42V33.8Z" fill="#0F0F10"/>
+    <path d="M43 18L56 31L83 4" stroke="#0F0F10" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="1410" y="62" fill="#202125" font-size="18" font-weight="500">Login</text>
+    <rect x="1480" y="28" width="88" height="52" fill="#FF7323"/>
+    <text x="1524" y="61" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">Admin</text>
+  </g>
+
+  <rect x="310" y="286" width="460" height="40" fill="#F8E9BD" stroke="#232427" stroke-width="1.4"/>
+  <text x="325" y="315" fill="#232427" font-size="25" font-family="Arial, Helvetica, sans-serif" font-weight="600">SmartFolio : Portfolio &amp; Wealth Dashboard</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="310" y="430" fill="#202125" font-size="60" font-weight="700">See your money</text>
+    <text x="310" y="505" fill="#FF6D1E" font-size="60" font-weight="700">as a single picture.</text>
+
+    <text x="310" y="594" fill="#232427" font-size="18" font-weight="500">SmartFolio brings your stocks, funds and cash into one clean</text>
+    <text x="310" y="626" fill="#232427" font-size="18" font-weight="500">dashboard — so you always know where you stand and what</text>
+    <text x="310" y="658" fill="#232427" font-size="18" font-weight="500">to do next.</text>
+
+    <rect x="310" y="718" width="162" height="58" fill="#FF7323"/>
+    <text x="391" y="755" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="700">Start Tracking</text>
+  </g>
+
+  <g transform="translate(1010 218)">
+    <rect width="380" height="470" fill="url(#cardBg)" stroke="#242424" stroke-width="2"/>
+    <text x="28" y="40" fill="#252529" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="600">Total Portfolio</text>
+    <rect x="248" y="28" width="94" height="30" rx="8" fill="#FFF5DD"/>
+    <path d="M260 46L265.5 34L271 46H260Z" fill="#FF7323"/>
+    <text x="278" y="48" fill="#FF7323" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">+14.2%</text>
+
+    <text x="28" y="94" fill="#202125" font-size="52" font-family="Arial, Helvetica, sans-serif" font-weight="700">$124,500</text>
+
+    <path d="M100 230C130 222 162 208 190 186C214 168 241 168 264 176C284 183 308 172 338 152" stroke="#FF6D1E" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="338" cy="152" r="6" fill="#FF6D1E"/>
+
+    <g fill="#2C2D31" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="500">
+      <text x="28" y="270">Jan</text>
+      <text x="116" y="270">Mar</text>
+      <text x="205" y="270">May</text>
+      <text x="293" y="270">Jul</text>
+      <text x="372" y="270" text-anchor="end">Sep</text>
+    </g>
+
+    <g fill="#222327" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="500">
+      <text x="28" y="322">Stocks</text><text x="342" y="322" text-anchor="end" font-weight="700">54%</text>
+      <text x="28" y="358">Funds</text><text x="342" y="358" text-anchor="end" font-weight="700">22%</text>
+      <text x="28" y="394">Cash</text><text x="342" y="394" text-anchor="end" font-weight="700">16%</text>
+      <text x="28" y="430">Other</text><text x="342" y="430" text-anchor="end" font-weight="700">8%</text>
+    </g>
+
+    <g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500" fill="#222327">
+      <rect x="28" y="466" width="136" height="32" rx="16" stroke="#2B2C2F" stroke-width="1.5"/><text x="96" y="487" text-anchor="middle">Goal-based planning</text>
+      <rect x="174" y="466" width="120" height="32" rx="16" stroke="#2B2C2F" stroke-width="1.5"/><text x="234" y="487" text-anchor="middle">Risk overview</text>
+      <rect x="28" y="508" width="96" height="32" rx="16" stroke="#2B2C2F" stroke-width="1.5"/><text x="76" y="529" text-anchor="middle">Simple export</text>
+    </g>
+  </g>
+
+  <rect y="948" width="1600" height="52" fill="#F7EDC9" stroke="#232427" stroke-width="1.2"/>
+  <g font-family="Courier New, monospace" font-size="16" font-weight="700">
+    <text x="8" y="980" fill="#FF6D1E">▲ +2.1%</text>
+    <text x="92" y="980" fill="#242529">BTC</text>
+    <text x="124" y="980" fill="#FF6D1E">▲ +5.4%</text>
+    <text x="210" y="980" fill="#242529">TSLA ▼ −0.8%</text>
+    <text x="336" y="980" fill="#242529">ETH</text>
+    <text x="384" y="980" fill="#FF6D1E">▲ +2.1%</text>
+    <text x="485" y="980" fill="#242529">NIFTY</text>
+    <text x="564" y="980" fill="#FF6D1E">▲ +0.5%</text>
+    <text x="674" y="980" fill="#242529">GOLD</text>
+    <text x="751" y="980" fill="#FF6D1E">▲ +0.1%</text>
+    <text x="861" y="980" fill="#242529">AMZN ▼ −1.2%</text>
+    <text x="1043" y="980" fill="#242529">ETH</text>
+    <text x="1091" y="980" fill="#FF6D1E">▲ +2.1%</text>
+    <text x="1192" y="980" fill="#242529">NIFTY</text>
+    <text x="1271" y="980" fill="#FF6D1E">▲ +0.5%</text>
+    <text x="1381" y="980" fill="#242529">AAPL</text>
+    <text x="1446" y="980" fill="#FF6D1E">▲ +1.2%</text>
+  </g>
+</svg>

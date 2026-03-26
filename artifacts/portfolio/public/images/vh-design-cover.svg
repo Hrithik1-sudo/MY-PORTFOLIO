@@ -1,0 +1,110 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGlow" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset="1" stop-color="#020202"/>
+    </linearGradient>
+    <radialGradient id="navGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 48) rotate(90) scale(96 220)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1085 470) rotate(90) scale(190 230)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lineFade" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="0.48" stop-color="#FFFFFF" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.08"/>
+    </linearGradient>
+    <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="smallGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bgGlow)"/>
+  <rect width="1600" height="86" fill="#101010"/>
+  <rect x="0" y="85" width="1600" height="8" fill="#1A2443"/>
+  <rect x="0" y="93" width="1600" height="1" fill="#2E3F7B" opacity="0.55"/>
+  <ellipse cx="260" cy="48" rx="140" ry="62" fill="url(#navGlow)"/>
+
+  <g>
+    <rect x="188" y="18" width="56" height="56" rx="16" fill="#F7F7F7"/>
+    <text x="216" y="52" text-anchor="middle" fill="#090909" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">VH</text>
+    <text x="282" y="49" fill="#F6F6F6" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">VH</text>
+    <text x="329" y="49" fill="#F6F6F6" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="600">Design</text>
+  </g>
+
+  <g fill="#EFEFEF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" opacity="0.92">
+    <text x="450" y="48">Home</text>
+    <text x="560" y="48">Project</text>
+    <text x="684" y="48">Services</text>
+    <text x="812" y="48">About</text>
+    <text x="920" y="48">Record's</text>
+  </g>
+
+  <g>
+    <rect x="1324" y="18" width="110" height="48" rx="12" stroke="#5A5A5A"/>
+    <text x="1379" y="49" text-anchor="middle" fill="#F2F2F2" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="600">Contact</text>
+    <rect x="1450" y="18" width="102" height="48" rx="12" fill="#F7F7F7" filter="url(#smallGlow)"/>
+    <text x="1501" y="49" text-anchor="middle" fill="#0A0A0A" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">LogOut</text>
+  </g>
+
+  <text x="310" y="342" fill="#C9CDD7" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="500" letter-spacing="6">FREELANCE UI/UX &amp; MERN DEVELOPER</text>
+
+  <g fill="#F8F8F8" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="310" y="470" font-size="58">Creating amazing</text>
+    <text x="310" y="558" font-size="58">user</text>
+    <text x="310" y="646" font-size="58">experiences.</text>
+  </g>
+
+  <text x="310" y="716" fill="#CFCFCF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="500">From Figma design to live React &amp; Node.js deployment. Custom</text>
+  <text x="310" y="748" fill="#CFCFCF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="500">web apps that convert visitors into clients.</text>
+
+  <g>
+    <rect x="310" y="814" width="210" height="74" rx="36" fill="#F7F7F7" filter="url(#smallGlow)"/>
+    <text x="415" y="860" text-anchor="middle" fill="#090909" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">View Projects</text>
+    <path d="M467 851L486 851M486 851L478 843M486 851L478 859" stroke="#090909" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="540" y="814" width="140" height="74" rx="36" stroke="#727272" stroke-width="2"/>
+    <text x="610" y="860" text-anchor="middle" fill="#F3F3F3" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Hire Me</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500">
+    <rect x="310" y="922" width="74" height="36" rx="18" stroke="#5A5A5A"/><text x="347" y="945" text-anchor="middle" fill="#EFEFEF">React</text>
+    <rect x="394" y="922" width="116" height="36" rx="18" stroke="#5A5A5A"/><text x="452" y="945" text-anchor="middle" fill="#EFEFEF">Tailwind CSS</text>
+    <rect x="520" y="922" width="94" height="36" rx="18" stroke="#5A5A5A"/><text x="567" y="945" text-anchor="middle" fill="#EFEFEF">Node.js</text>
+    <rect x="624" y="922" width="106" height="36" rx="18" stroke="#5A5A5A"/><text x="677" y="945" text-anchor="middle" fill="#EFEFEF">MongoDB</text>
+    <rect x="740" y="922" width="72" height="36" rx="18" stroke="#5A5A5A"/><text x="776" y="945" text-anchor="middle" fill="#EFEFEF">Figma</text>
+  </g>
+
+  <ellipse cx="1085" cy="470" rx="220" ry="190" fill="url(#orbGlow)" filter="url(#softBlur)"/>
+  <circle cx="1110" cy="528" r="118" stroke="#ECECEC" stroke-width="3" opacity="0.86"/>
+  <circle cx="1110" cy="528" r="144" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <circle cx="1110" cy="528" r="164" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M1110 470C1114 489 1122 501 1140 505C1122 509 1114 521 1110 540C1105 521 1097 509 1080 505C1097 500 1105 489 1110 470Z" fill="#FAFAFA"/>
+  <circle cx="1161" cy="486" r="2.4" fill="#FFFFFF"/>
+  <circle cx="1175" cy="501" r="1.9" fill="#FFFFFF"/>
+  <circle cx="1148" cy="501" r="1.6" fill="#FFFFFF"/>
+  <text x="1110" y="610" text-anchor="middle" fill="#EFEFEF" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="4">DESIGNER</text>
+
+  <text x="1018" y="732" fill="#CFCFCF" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="500">Available for <tspan font-weight="700" fill="#FFFFFF">freelance projects &amp;</tspan></text>
+  <text x="1092" y="765" fill="#FFFFFF" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">internships.</text>
+
+  <text x="1115" y="875" fill="#66759B" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="600" letter-spacing="5">SCROLL</text>
+  <line x1="1144" y1="895" x2="1144" y2="952" stroke="#6A6A6A" opacity="0.55"/>
+  <circle cx="1144" cy="940" r="5" fill="#FFFFFF" opacity="0.16"/>
+
+  <g stroke="url(#lineFade)" stroke-width="2.2" opacity="0.95" fill="none">
+    <path d="M0 635C115 624 230 625 345 633C470 642 586 661 704 663C821 665 938 649 1060 636C1186 622 1300 621 1600 650"/>
+    <path d="M0 658C135 648 248 649 362 660C479 672 596 690 712 692C830 694 948 677 1068 664C1188 651 1308 653 1600 683"/>
+    <path d="M0 680C126 671 243 673 358 686C477 699 594 717 711 721C832 724 952 708 1074 693C1200 678 1318 683 1600 715"/>
+    <path d="M0 703C117 695 236 699 355 714C474 729 592 748 708 750C825 752 944 734 1069 719C1197 705 1320 712 1600 745"/>
+    <path d="M0 727C126 720 244 725 360 742C481 760 600 780 718 782C837 784 957 765 1080 748C1208 731 1332 741 1600 775"/>
+    <path d="M0 752C126 746 245 752 362 771C484 791 604 811 723 813C842 815 963 796 1088 779C1215 762 1340 775 1600 808"/>
+    <path d="M0 778C126 772 245 780 365 801C487 822 609 842 727 844C846 846 968 827 1094 809C1223 791 1348 808 1600 842"/>
+  </g>
+</svg>

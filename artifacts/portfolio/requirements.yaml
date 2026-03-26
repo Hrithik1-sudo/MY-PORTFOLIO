@@ -1,0 +1,16 @@
+packages:
+  "framer-motion": "For premium page transitions, scroll-triggered animations, and micro-interactions"
+  "clsx": "For conditional class merging"
+  "tailwind-merge": "For merging tailwind classes safely"
+
+images:
+  - path: "artifacts/portfolio/public/images/hero-abstract.png"
+    description: "Subtle minimal abstract 3D glassmorphic geometric shapes on a pure light gray background, premium studio lighting, soft shadows, extremely clean and professional"
+    aspect_ratio: "1:1"
+  - path: "artifacts/portfolio/public/images/bg-texture.png"
+    description: "Very subtle fine grain noise texture, pure white and light gray, extremely low opacity, meant for website background"
+    aspect_ratio: "16:9"
+
+notes:
+  - This is a static portfolio, no backend required.
+  - Using framer-motion for high-end scroll animations.
