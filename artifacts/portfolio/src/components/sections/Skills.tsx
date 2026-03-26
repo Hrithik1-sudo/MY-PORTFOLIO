@@ -4,9 +4,17 @@ import { Brain, Clock3, Code2, Crown, Gauge, Lightbulb } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/data";
 
 const categories = [
-  { label: "Frontend", key: "frontend" as const, index: "01" },
-  { label: "Backend", key: "backend" as const, index: "02" },
-  { label: "Tools & DevOps", key: "tools" as const, index: "03" },
+  { label: "Frontend", key: "frontend" as const, index: "01", accent: "hover-accent-sky" },
+  { label: "Backend", key: "backend" as const, index: "02", accent: "hover-accent-emerald" },
+  { label: "Tools & DevOps", key: "tools" as const, index: "03", accent: "hover-accent-amber" },
+];
+
+const softSkillAccents = [
+  "hover-accent-violet",
+  "hover-accent-rose",
+  "hover-accent-cyan",
+  "hover-accent-amber",
+  "hover-accent-emerald",
 ];
 
 const softSkillIcons = {
@@ -131,7 +139,7 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 + catIdx * 0.1 }}
-              className={`interactive-surface p-8 flex flex-col gap-8 ${catIdx < categories.length - 1 ? "border-b md:border-b-0 md:border-r border-foreground/8" : ""}`}
+              className={`interactive-surface ${cat.accent} p-8 flex flex-col gap-8 ${catIdx < categories.length - 1 ? "border-b md:border-b-0 md:border-r border-foreground/8" : ""}`}
             >
               <div className="flex items-start justify-between">
                 <h3 className="text-xl font-bold tracking-tight">{cat.label}</h3>
@@ -184,7 +192,7 @@ export function Skills() {
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -10, rotateX: 1.2, rotateY: idx % 2 === 0 ? -1.6 : 1.6, scale: 1.02 }}
-                  className="interactive-surface group relative overflow-hidden rounded-[1.75rem] border border-foreground/8 bg-card p-5 sm:p-6"
+                  className={`interactive-surface ${softSkillAccents[idx % softSkillAccents.length]} group relative overflow-hidden rounded-[1.75rem] border border-foreground/8 bg-card p-5 sm:p-6`}
                   data-cursor-hover
                 >
                   <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,hsl(var(--foreground)/0.08),transparent_42%)]" />

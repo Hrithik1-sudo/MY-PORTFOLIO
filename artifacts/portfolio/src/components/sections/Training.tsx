@@ -85,7 +85,7 @@ export function Training() {
               transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -8, scale: 1.01 }}
               onDoubleClick={() => setSelectedTraining(item)}
-              className="interactive-surface group relative overflow-hidden rounded-[2rem] border border-foreground/8 bg-card p-8 sm:p-10 cursor-pointer"
+              className="interactive-surface hover-accent-cyan group relative overflow-hidden rounded-[2rem] border border-foreground/8 bg-card p-8 sm:p-10 cursor-pointer"
               data-cursor-hover
             >
               <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_right,hsl(var(--foreground)/0.07),transparent_45%)]" />

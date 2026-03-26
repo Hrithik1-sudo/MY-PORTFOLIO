@@ -49,7 +49,7 @@ export function Education() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ y: -8, scale: 1.01 }}
-          className="interactive-surface group relative overflow-hidden rounded-[3rem] border border-foreground/14 bg-card dark:bg-black px-8 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16"
+          className="interactive-surface hover-accent-violet group relative overflow-hidden rounded-[3rem] border border-foreground/14 bg-card dark:bg-black px-8 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16"
           data-cursor-hover
         >
           <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_right,hsl(var(--foreground)/0.08),transparent_42%)]" />
@@ -90,7 +90,7 @@ export function Education() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ x: 4, scale: 1.005 }}
-              className="interactive-surface group relative overflow-hidden rounded-[2rem] border border-foreground/14 bg-card dark:bg-black px-6 py-6 sm:px-8 sm:py-7"
+              className={`interactive-surface ${idx % 2 === 0 ? "hover-accent-sky" : "hover-accent-rose"} group relative overflow-hidden rounded-[2rem] border border-foreground/14 bg-card dark:bg-black px-6 py-6 sm:px-8 sm:py-7`}
               data-cursor-hover
             >
               <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[linear-gradient(90deg,hsl(var(--foreground)/0.05),transparent_42%)]" />

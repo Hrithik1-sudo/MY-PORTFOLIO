@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { Calendar, ExternalLink, Github } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/data";
 
+const projectHoverAccents = [
+  "hover-accent-sky",
+  "hover-accent-emerald",
+  "hover-accent-violet",
+  "hover-accent-rose",
+];
+
 function ProjectCard({ project, idx }: { project: typeof PORTFOLIO_DATA.projects[0]; idx: number }) {
   return (
     <motion.div
@@ -9,16 +16,15 @@ function ProjectCard({ project, idx }: { project: typeof PORTFOLIO_DATA.projects
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="interactive-surface group relative flex flex-col rounded-2xl overflow-hidden border border-foreground/8 bg-card cursor-default"
+      className={`interactive-surface group relative flex flex-col rounded-2xl overflow-hidden border border-foreground/8 bg-card cursor-default ${projectHoverAccents[idx % projectHoverAccents.length]}`}
       data-cursor-hover
-      whileHover={{ y: -10, rotateX: 1.4, rotateY: idx % 2 === 0 ? -1.4 : 1.4 }}
+      whileHover={{ y: -10, scale: 1.018, rotateX: 1.8, rotateY: idx % 2 === 0 ? -2.4 : 2.4 }}
     >
-      {/* Image container — static, no motion effects */}
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          className="h-full w-full object-cover transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.08] group-hover:contrast-110"
           loading="lazy"
         />
 
@@ -26,15 +32,28 @@ function ProjectCard({ project, idx }: { project: typeof PORTFOLIO_DATA.projects
           {project.date}
         </div>
 
-        {/* Hover overlay — description + tech */}
-        <div className="absolute inset-0 bg-background/92 flex flex-col justify-center px-7 py-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out">
-          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/55 mb-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/82 to-background/18 opacity-0 transition-opacity duration-400 ease-out group-hover:opacity-100" />
+
+        <div className="absolute inset-x-0 bottom-0 flex translate-y-6 flex-col gap-4 px-7 py-7 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/58">
             <Calendar className="w-3.5 h-3.5" />
             {project.date}
           </div>
-          <p className="text-foreground/80 text-sm leading-relaxed mb-5">
+
+          <div className="space-y-2">
+            <h3 className="text-2xl font-bold tracking-tight text-foreground">
+              {project.title}
+            </h3>
+            <div className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/80">
+              <span>View Project</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </div>
+          </div>
+
+          <p className="text-sm leading-relaxed text-foreground/72">
             {project.description}
           </p>
+
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t) => (
               <span
@@ -45,7 +64,7 @@ function ProjectCard({ project, idx }: { project: typeof PORTFOLIO_DATA.projects
               </span>
             ))}
           </div>
-          {/* Links inside overlay */}
+
           <div className="flex items-center gap-4 mt-6">
             <a
               href={project.liveLink}
@@ -69,7 +88,6 @@ function ProjectCard({ project, idx }: { project: typeof PORTFOLIO_DATA.projects
         </div>
       </div>
 
-      {/* Card footer — always visible */}
       <div className="flex items-center justify-between gap-4 px-5 py-4 border-t border-foreground/6">
         <div>
           <h3 className="text-base font-bold text-foreground">{project.title}</h3>
@@ -87,13 +105,6 @@ function ProjectCard({ project, idx }: { project: typeof PORTFOLIO_DATA.projects
           </div>
         </div>
       </div>
-
-      {/* Scale wrapper overlay for zoom on hover */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none rounded-2xl"
-        initial={false}
-        animate={{ boxShadow: "0 0 0 rgba(0,0,0,0)" }}
-      />
     </motion.div>
   );
 }
@@ -144,7 +155,7 @@ export function Projects() {
           {PORTFOLIO_DATA.projects.map((project, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ scale: 1.025, y: -4 }}
+              whileHover={{ scale: 1.015, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 22 }}
             >
               <ProjectCard project={project} idx={idx} />

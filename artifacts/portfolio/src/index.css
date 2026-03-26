@@ -55,6 +55,9 @@
 :root {
   --hover-invert-bg: hsl(var(--foreground));
   --hover-invert-fg: hsl(var(--background));
+  --hover-surface-tint: hsl(var(--foreground) / 0.08);
+  --hover-surface-border: hsl(var(--foreground) / 0.22);
+  --hover-surface-shadow: 0 28px 90px hsl(var(--foreground) / 0.12);
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .06);
   --opaque-button-border-intensity: -9;
@@ -118,6 +121,9 @@
 .dark {
   --hover-invert-bg: hsl(var(--foreground));
   --hover-invert-fg: hsl(var(--background));
+  --hover-surface-tint: hsl(var(--foreground) / 0.12);
+  --hover-surface-border: hsl(var(--foreground) / 0.3);
+  --hover-surface-shadow: 0 30px 95px hsl(var(--foreground) / 0.15);
   --button-outline: rgba(255,255,255, .10);
   --badge-outline: rgba(255,255,255, .05);
   --opaque-button-border-intensity: 9;
@@ -222,11 +228,16 @@
 
   .interactive-surface {
     position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    --surface-hover-accent: hsl(var(--foreground) / 0.08);
+    --surface-hover-border: var(--hover-surface-border);
+    --surface-hover-shadow: var(--hover-surface-shadow);
     transition:
-      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 260ms ease,
-      background-color 260ms ease,
-      box-shadow 260ms ease;
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 320ms ease,
+      background-color 320ms ease,
+      box-shadow 420ms ease;
   }
 
   .interactive-surface::before {
@@ -236,10 +247,14 @@
     border-radius: inherit;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 260ms ease;
+    transform: translateY(18px) scale(0.96);
+    transition:
+      opacity 320ms ease,
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
     background:
-      linear-gradient(135deg, hsl(var(--foreground) / 0.05), transparent 45%),
-      radial-gradient(circle at top right, hsl(var(--foreground) / 0.07), transparent 35%);
+      linear-gradient(135deg, var(--surface-hover-accent), transparent 42%),
+      radial-gradient(circle at top right, var(--surface-hover-accent), transparent 34%),
+      radial-gradient(circle at bottom left, var(--surface-hover-accent), transparent 30%);
   }
 
   .interactive-surface::after {
@@ -251,31 +266,35 @@
     width: 28%;
     pointer-events: none;
     opacity: 0;
-    transform: skewX(-18deg) translateX(-120%);
+    transform: skewX(-18deg) translateX(-130%);
     transition:
-      transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 260ms ease;
+      transform 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 320ms ease;
     background: linear-gradient(
       90deg,
       transparent,
-      hsl(var(--background) / 0.16),
+      hsl(var(--background) / 0.22),
       transparent
     );
   }
 
   .interactive-surface:hover {
-    transform: translateY(-10px) scale(1.012);
-    border-color: hsl(var(--foreground) / 0.18);
-    box-shadow: 0 30px 84px hsl(var(--foreground) / 0.11);
+    transform: translateY(-10px) scale(1.014);
+    background-color: color-mix(in srgb, hsl(var(--card)) 86%, var(--hover-invert-bg) 14%);
+    border-color: var(--surface-hover-border);
+    box-shadow:
+      var(--surface-hover-shadow),
+      0 2px 0 hsl(var(--foreground) / 0.03);
   }
 
   .interactive-surface:hover::before {
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
 
   .interactive-surface:hover::after {
     opacity: 1;
-    transform: skewX(-18deg) translateX(380%);
+    transform: skewX(-18deg) translateX(420%);
   }
 
   .interactive-surface.keep-surface-tone::before {
@@ -290,12 +309,28 @@
   }
 
   .interactive-chip {
+    position: relative;
+    overflow: hidden;
     transition:
-      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 220ms ease,
-      background-color 220ms ease,
-      color 220ms ease,
-      box-shadow 220ms ease;
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 240ms ease,
+      background-color 240ms ease,
+      color 240ms ease,
+      box-shadow 260ms ease;
+  }
+
+  .interactive-chip::after {
+    content: "";
+    position: absolute;
+    inset: -1px auto -1px -42%;
+    width: 36%;
+    opacity: 0;
+    transform: skewX(-18deg) translateX(-120%);
+    transition:
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 240ms ease;
+    background: linear-gradient(90deg, transparent, hsl(var(--background) / 0.18), transparent);
+    pointer-events: none;
   }
 
   .interactive-chip:hover {
@@ -303,7 +338,12 @@
     background-color: var(--hover-invert-bg);
     color: var(--hover-invert-fg);
     border-color: var(--hover-invert-bg);
-    box-shadow: 0 12px 28px hsl(var(--foreground) / 0.1);
+    box-shadow: 0 16px 34px hsl(var(--foreground) / 0.14);
+  }
+
+  .interactive-chip:hover::after {
+    opacity: 1;
+    transform: skewX(-18deg) translateX(420%);
   }
 
   .interactive-chip.keep-chip-tone:hover {
@@ -320,15 +360,18 @@
 
   .interactive-link:hover {
     transform: translateY(-2px);
-    text-shadow: 0 0 18px hsl(var(--foreground) / 0.08);
+    color: var(--hover-invert-bg);
+    text-shadow: 0 0 20px hsl(var(--foreground) / 0.12);
   }
 
   .interactive-icon {
+    position: relative;
     transition:
-      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
       color 220ms ease,
       border-color 220ms ease,
-      background-color 220ms ease;
+      background-color 220ms ease,
+      box-shadow 260ms ease;
   }
 
   .interactive-icon:hover {
@@ -336,7 +379,7 @@
     background-color: var(--hover-invert-bg);
     color: var(--hover-invert-fg);
     border-color: var(--hover-invert-bg);
-    box-shadow: 0 12px 28px hsl(var(--foreground) / 0.12);
+    box-shadow: 0 16px 34px hsl(var(--foreground) / 0.16);
   }
 
   .hover-invert {
@@ -352,7 +395,7 @@
     background-color: var(--hover-invert-bg);
     color: var(--hover-invert-fg);
     border-color: var(--hover-invert-bg);
-    box-shadow: 0 14px 30px hsl(var(--foreground) / 0.12);
+    box-shadow: 0 18px 38px hsl(var(--foreground) / 0.16);
   }
 
   .no-scrollbar {
@@ -372,6 +415,42 @@
     box-shadow:
       0 20px 50px hsl(var(--foreground) / 0.06),
       inset 0 1px 0 hsl(var(--foreground) / 0.06);
+  }
+
+  .hover-accent-sky {
+    --surface-hover-accent: rgba(56, 189, 248, 0.16);
+    --surface-hover-border: rgba(56, 189, 248, 0.34);
+    --surface-hover-shadow: 0 28px 90px rgba(56, 189, 248, 0.16);
+  }
+
+  .hover-accent-emerald {
+    --surface-hover-accent: rgba(16, 185, 129, 0.16);
+    --surface-hover-border: rgba(16, 185, 129, 0.34);
+    --surface-hover-shadow: 0 28px 90px rgba(16, 185, 129, 0.16);
+  }
+
+  .hover-accent-violet {
+    --surface-hover-accent: rgba(139, 92, 246, 0.16);
+    --surface-hover-border: rgba(139, 92, 246, 0.34);
+    --surface-hover-shadow: 0 28px 90px rgba(139, 92, 246, 0.16);
+  }
+
+  .hover-accent-rose {
+    --surface-hover-accent: rgba(244, 63, 94, 0.16);
+    --surface-hover-border: rgba(244, 63, 94, 0.34);
+    --surface-hover-shadow: 0 28px 90px rgba(244, 63, 94, 0.16);
+  }
+
+  .hover-accent-amber {
+    --surface-hover-accent: rgba(245, 158, 11, 0.16);
+    --surface-hover-border: rgba(245, 158, 11, 0.34);
+    --surface-hover-shadow: 0 28px 90px rgba(245, 158, 11, 0.16);
+  }
+
+  .hover-accent-cyan {
+    --surface-hover-accent: rgba(34, 211, 238, 0.16);
+    --surface-hover-border: rgba(34, 211, 238, 0.34);
+    --surface-hover-shadow: 0 28px 90px rgba(34, 211, 238, 0.16);
   }
 
   /* SVG text stroke adapts to theme via CSS variable */

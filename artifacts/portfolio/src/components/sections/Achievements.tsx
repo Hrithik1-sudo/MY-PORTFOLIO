@@ -12,6 +12,13 @@ const fadeUp = {
 };
 
 const achievementIcons = [Trophy, Award, ShieldCheck, Sparkles, Rocket];
+const achievementHoverAccents = [
+  "hover-accent-amber",
+  "hover-accent-sky",
+  "hover-accent-emerald",
+  "hover-accent-violet",
+  "hover-accent-rose",
+];
 
 export function Achievements() {
   return (
@@ -63,7 +70,7 @@ export function Achievements() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -10, scale: 1.02, rotateX: 1.1, rotateY: idx % 2 === 0 ? -1.2 : 1.2 }}
-                className="interactive-surface group relative overflow-hidden rounded-[2rem] border border-foreground/8 bg-card p-6 sm:p-7"
+                className={`interactive-surface ${achievementHoverAccents[idx % achievementHoverAccents.length]} group relative overflow-hidden rounded-[2rem] border border-foreground/8 bg-card p-6 sm:p-7`}
                 data-cursor-hover
               >
                 <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,hsl(var(--foreground)/0.08),transparent_44%)]" />

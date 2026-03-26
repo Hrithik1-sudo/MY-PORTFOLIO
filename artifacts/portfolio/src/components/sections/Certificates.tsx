@@ -14,6 +14,14 @@ const CATEGORY_COLORS: Record<string, string> = {
   Wellness: "text-rose-400 border-rose-400/20 bg-rose-400/8",
 };
 
+const certificateHoverAccents = [
+  "hover-accent-rose",
+  "hover-accent-emerald",
+  "hover-accent-amber",
+  "hover-accent-violet",
+  "hover-accent-cyan",
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (delay = 0) => ({
@@ -93,7 +101,7 @@ export function Certificates() {
               transition={{ duration: 0.55, delay: idx * 0.07, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -10, scale: 1.025, rotateX: 1.6, rotateY: idx % 2 === 0 ? -1.8 : 1.8 }}
               onDoubleClick={() => setSelectedCert(cert)}
-              className="interactive-surface group relative flex flex-col gap-5 p-6 rounded-2xl border border-foreground/8 bg-card cursor-pointer overflow-hidden"
+              className={`interactive-surface ${certificateHoverAccents[idx % certificateHoverAccents.length]} group relative flex flex-col gap-5 p-6 rounded-2xl border border-foreground/8 bg-card cursor-pointer overflow-hidden`}
               data-cursor-hover
             >
               <div

@@ -26,6 +26,8 @@ if (!basePath) {
   );
 }
 
+const apiServerTarget = process.env.API_SERVER_TARGET ?? "http://localhost:3000";
+
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -62,6 +64,12 @@ export default defineConfig({
     port,
     host: "0.0.0.0",
     allowedHosts: true,
+    proxy: {
+      "/api": {
+        target: apiServerTarget,
+        changeOrigin: true,
+      },
+    },
     fs: {
       strict: true,
       deny: ["**/.*"],

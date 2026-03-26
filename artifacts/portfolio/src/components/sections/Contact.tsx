@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/data";
 import { useState } from "react";
 
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/hparihar2005@gmail.com";
+const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/hparihar2005@gmail.com";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -20,6 +20,7 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError("");
 
     try {
       const payload = new FormData();
@@ -31,7 +32,7 @@ export function Contact() {
       payload.append("_replyto", form.email);
       payload.append("_honey", form.honey);
 
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -39,14 +40,13 @@ export function Contact() {
         body: payload,
       });
 
-      const result = await response.json();
+      const result = await parseApiResponse(response);
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Unable to send message right now.");
       }
 
       setIsSubmitting(false);
-      setSubmitError("");
       setSubmitted(true);
       setForm({ name: "", email: "", message: "", honey: "" });
       setTimeout(() => setSubmitted(false), 4000);
@@ -54,7 +54,9 @@ export function Contact() {
       setIsSubmitting(false);
       setSubmitted(false);
       setSubmitError(
-        error instanceof Error ? error.message : "Unable to send message right now."
+        error instanceof Error
+          ? error.message
+          : "Unable to send message right now."
       );
     }
   };
@@ -267,7 +269,7 @@ export function Contact() {
                 </p>
               ) : (
                 <p className="text-xs text-foreground/52 leading-relaxed max-w-md">
-                  Messages are sent directly to {PORTFOLIO_DATA.personal.email}. The first live submission may require you to confirm the FormSubmit activation email once.
+                  Messages are sent directly to {PORTFOLIO_DATA.personal.email}. The first live submission may require confirming the FormSubmit activation email once.
                 </p>
               )}
             </form>
@@ -277,4 +279,22 @@ export function Contact() {
       </div>
     </section>
   );
+}
+
+async function parseApiResponse(response: Response) {
+  const raw = await response.text();
+
+  if (!raw.trim()) {
+    throw new Error(
+      "The contact service is not responding yet. Please try again in a moment."
+    );
+  }
+
+  try {
+    return JSON.parse(raw) as { success?: boolean; message?: string };
+  } catch {
+    throw new Error(
+      "The contact service returned an unexpected response. Please try again shortly."
+    );
+  }
 }
