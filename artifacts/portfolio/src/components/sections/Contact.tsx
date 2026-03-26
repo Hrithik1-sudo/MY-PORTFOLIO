@@ -3,26 +3,60 @@ import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/data";
 import { useState } from "react";
 
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/hparihar2005@gmail.com";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (delay = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay, ease: "easeOut" } }),
 };
 
 export function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", honey: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [focused, setFocused] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    try {
+      const payload = new FormData();
+      payload.append("name", form.name);
+      payload.append("email", form.email);
+      payload.append("message", form.message);
+      payload.append("_subject", `New portfolio message from ${form.name}`);
+      payload.append("_template", "table");
+      payload.append("_replyto", form.email);
+      payload.append("_honey", form.honey);
+
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: payload,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send message right now.");
+      }
+
       setIsSubmitting(false);
+      setSubmitError("");
       setSubmitted(true);
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", honey: "" });
       setTimeout(() => setSubmitted(false), 4000);
-    }, 1500);
+    } catch (error) {
+      setIsSubmitting(false);
+      setSubmitted(false);
+      setSubmitError(
+        error instanceof Error ? error.message : "Unable to send message right now."
+      );
+    }
   };
 
   const inputClass = (field: string) =>
@@ -138,6 +172,16 @@ export function Contact() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2}
           >
             <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+              <input
+                type="text"
+                name="_honey"
+                tabIndex={-1}
+                autoComplete="off"
+                value={form.honey}
+                onChange={(e) => setForm({ ...form, honey: e.target.value })}
+                className="hidden"
+              />
+
               <div className="flex flex-col gap-1">
                 <label className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">Name</label>
                 <motion.input
@@ -216,6 +260,16 @@ export function Contact() {
                 )}
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-foreground group-hover:w-full transition-all duration-300" />
               </motion.button>
+
+              {submitError ? (
+                <p className="text-sm text-red-500/85 leading-relaxed max-w-md">
+                  {submitError}
+                </p>
+              ) : (
+                <p className="text-xs text-foreground/52 leading-relaxed max-w-md">
+                  Messages are sent directly to {PORTFOLIO_DATA.personal.email}. The first live submission may require you to confirm the FormSubmit activation email once.
+                </p>
+              )}
             </form>
           </motion.div>
 
