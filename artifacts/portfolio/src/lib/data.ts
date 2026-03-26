@@ -174,7 +174,7 @@ export const PORTFOLIO_DATA = {
       institution: "Lovely Professional University, Phagwara, Punjab",
       date: "Aug 2023 - Present",
       description: "Pursuing Computer Science and Engineering while building strong practical skills in software development, algorithms, databases, and full stack web technologies.",
-      result: "CGPA: 7.2",
+      result: "CGPA: 7.8",
       status: "Currently Enrolled"
     },
     {
