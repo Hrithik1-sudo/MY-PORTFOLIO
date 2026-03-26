@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "corepack pnpm install --frozen-lockfile",
+  "buildCommand": "cd artifacts/portfolio && BASE_PATH=/ API_SERVER_TARGET=http://localhost:3000 corepack pnpm exec vite build --config vite.config.ts",
+  "outputDirectory": "artifacts/portfolio/dist/public"
+}
